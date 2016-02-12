@@ -1,3 +1,6 @@
+#REQUIRES -Version 3
+#REQUIRES -Module ActiveDirectory
+
 function Get-ADDuplicateUsers 
 {
 <# 
