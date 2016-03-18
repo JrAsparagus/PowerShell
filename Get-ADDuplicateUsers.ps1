@@ -1,6 +1,12 @@
 #REQUIRES -Version 3
 #REQUIRES -Module ActiveDirectory
 
+#######################
+#
+#    Author: Mark Braker
+#    Date: 02FEB2016
+#
+#######################
 function Get-ADDuplicateUsers 
 {
 <# 
