@@ -1,6 +1,13 @@
-﻿#REQUIRES -Version 4
+#REQUIRES -Version 4
 #REQUIRES -Module NetSecurity
 #Requires -RunAsAdministrator
+
+############################
+#
+#    Author: Mark Braker
+#    Date: 02MFEB2016
+#
+############################
 
 
 function Add-SQLFirewallRule {
