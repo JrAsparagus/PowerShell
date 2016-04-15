@@ -1,0 +1,35 @@
+Function Get-DNSFromDN
+{
+       [CmdletBinding()]
+       param(
+              [parameter(ValueFromPipeline=$true,
+                   ValueFromPipelineByPropertyName=$true,
+                   HelpMessage="Enter DistinguishedName [CN=Administrator,CN=Users,DC=Contoso,DC=com]",
+                              Mandatory=$true)]
+              [string[]]
+              $DistinguishedName
+       )
+
+       begin {
+       } # End Begin
+       
+       process{
+        foreach ($dn in $DistinguishedName) {
+            try {
+                   $thisDNS = (($dn.split(',') -match 'DC=').substring(3) -join '.')
+                $obj = New-Object -TypeName PSObject -Property @{
+                    DistinguishedName=$dn
+                    DNSDomainName=$thisDNS
+                } # End New PsObject
+                Write-Output $obj
+            }
+            catch {
+                Write-Warning "Unable to convert distinguishedName: `n $dn"
+            }
+        } # End Foreach $dn
+    } # End Process
+
+    End {
+    } # End End
+
+} # End Function Get-DNSFromDN 
